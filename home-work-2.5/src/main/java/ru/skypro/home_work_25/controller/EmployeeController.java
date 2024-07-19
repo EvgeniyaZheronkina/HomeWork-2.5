@@ -10,7 +10,7 @@ import ru.skypro.home_work_25.service.EmployeeService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employees")
+@RequestMapping("/employee")
 public class EmployeeController {
 
     private  final EmployeeService employeeService;
