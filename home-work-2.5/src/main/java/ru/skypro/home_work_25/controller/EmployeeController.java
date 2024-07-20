@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.skypro.home_work_25.Employee;
 import ru.skypro.home_work_25.service.EmployeeService;
 
-import java.util.List;
+import java.util.Collection;
 
 @RestController
 @RequestMapping("/employee")
@@ -20,32 +20,32 @@ public class EmployeeController {
     }
 
     @GetMapping ("/add")
-    public Employee addEmployee(
+    public Employee add(
             @RequestParam ("firstName") String firstName,
             @RequestParam ("lastName") String lastName
     ){
         return employeeService.add(firstName, lastName);
     }
 
-    @GetMapping (value="/remove")
-    public Employee removeEmployee(
-            @RequestParam ("firstName: ") String firstName,
+    @GetMapping ("/remove")
+    public Employee remove(
+            @RequestParam ("firstName") String firstName,
             @RequestParam ("lastName") String lastName
     ){
         return employeeService.remove(firstName, lastName);
     }
 
-    @GetMapping (value="/find")
-    public Employee findEmployee(
-            @RequestParam ("firstName: ") String firstName,
+    @GetMapping ("/find")
+    public Employee find(
+            @RequestParam ("firstName") String firstName,
             @RequestParam ("lastName") String lastName
     ){
         return employeeService.find(firstName, lastName);
     }
 
-    @GetMapping(value="/allEmployees")
-    public List<Employee> getAllEmployees(){
-        return employeeService.getAll();
+    @GetMapping("/allEmployees")
+    public Collection <Employee> findAll(){
+        return employeeService.findAll();
     }
 
 }
